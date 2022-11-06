@@ -1,16 +1,24 @@
-# briansworth.GetIPv4Address
-IP addressing, subnets and so much more
+# ITPS.OMCS.IPv4ToolSet
+IP v4 tool set has the following functions.  The original idea was to provide a set of networking tools for the Sys Admin/Eng.  Of Course some of these may be useful to our Networking brothers and sisters.
 
-- Get-IPv4Subnet
-- Get-SubnetCheatSheet 
+- Add-IntToIPv4Address
 - Convert-NetMaskToCIDR
 - Convert-CIDRToNetMask
-- Add-IntToIPv4Address
-- Get-CidrFromHostCount
 - Convert-IPv4AddressToBinaryString
+- Get-IPv4Subnet
+- Get-SubnetCheatSheet 
+- Get-CidrFromHostCount
+- Find-MtuSize
 - Ping-IpRange
+- Test-TheInternet
 
+#### Shout Out and Thanks
+To Briansworth, where the module was forked from. Many of the tools were written by him.  Some of his tools made the others more efficient and streamlined.  Specificlly, the few functions that provide some heavy lifting for the exported functions.  These dependent functions are loaded with the _ITPS.OMCS.IPv4LinkedLibrary_ module.   
 
+#### Reason for the fork
+We wanted to expand on what we saw as a toolbox and felt that direction was moving away from what was a specific set of tools.  Afterall the `Ping-IpRange` is helpful, but not really a Subnet item.  
+
+## Exported Functions 
 
 #### Convert-IPv4AddressToBinaryString
 Converts an IP v4 Address to Binary String 
@@ -72,3 +80,30 @@ Pings through the range of IP addresses based on the First and Last Address prov
       192.168.0.20      True
       192.168.0.21      True
       192.168.0.24      True
+
+
+#### Test-TheInternet 
+Tests the path to the interenet from the local host outwards.  The idea behind this was to help the normal user "ping" the gateway.  
+
+	Checking for an Authentication Server
+	Authentication Server  : Not Available           
+	Finding the Web facing IP Address
+	External IP            : 70.171.18.19           
+	Testing Loopback connection:
+	127.0.0.1              : Passed                  
+	Testing IPAddress:
+	192.168.0.98           : Passed                  
+	Testing DefaultIPGateway:
+	192.168.0.1            : Passed                  
+	Testing DNSServerSearchOrder:
+	9.9.9.9                : Passed                  
+	8.8.8.8                : Passed                  
+	Testing DHCPServer:
+	192.168.0.1            : Passed                  
+	Testing ExternalIp:
+	70.171.18.19          : Passed        
+
+
+## Road Map 
+Although not entirely clear, we have a vision for a IPv4 centric toolbox and it may be complete, now.  But, we know that there is some room for improvement.  Simple items like, cleaning up the code and minimizing possible errors.
+ 
