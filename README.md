@@ -1,5 +1,6 @@
 # ITPS.OMCS.IPv4ToolSet
-IP v4 tool set has the following functions.  The original idea was to provide a set of networking tools for the Sys Admin/Eng.  Of Course some of these may be useful to our Networking brothers and sisters.
+
+A set of networking tools which contain the following functions: 
 
 - Add-IntToIPv4Address
 - Convert-NetMaskToCIDR
@@ -147,4 +148,6 @@ d----           11/9/2022    21:02                Tester
 ## Road Map 
 We have a vision for a IPv4 / Network tools centric toolbox.  What tools are going to be added, if any isn't exactally clear it may be complete now.  
 Regardless of how complete it is, we know that there is some room for improvement with cleaning up the code and minimizing possible errors.
+
+
  
