@@ -75,9 +75,9 @@ The primary function for this tools set.  The function gets information about an
 *Prviously: Get-CIDRFromHostCount*
 Returns the network size based on the number of hosts you want to connect.  This new version adds the Subnet, and binary to the previous CIDR only output.
 
-PrefixLength Subnet          Binary                          
------------- ------          ------                          
-          25 255.255.255.128 11111111111111111111111110000000
+	PrefixLength Subnet          Binary                          
+	------------ ------          ------                          
+          	25 255.255.255.128 11111111111111111111111110000000
 
 
 #### Ping-IpRange
