@@ -117,10 +117,11 @@ Tests the path to the interenet from the local host outwards.  The idea behind t
 
 ## Install / Setup
 
-Quick
+These are for people who just want to use it without installing into the Module folder.
 1. Download the [latest release zip file](https://github.com/KnarrStudio/ITPS.OMCS.IPv4ToolSet/releases)
 1. Unzip the files and save the module to the folder of your choosing.  Example: `C:\MyScripts\`    
-1. Run `Import-Module C:\MyScripts\ITPS.OMCS.IPv4ToolSet-1.1.2.17`
+1. Remove the version number from the end of the folder name.  Change *ITPS.OMCS.IPv4ToolSet-1.1.2.17* to *ITPS.OMCS.IPv4ToolSet* 
+1. Run `Import-Module C:\MyScripts\ITPS.OMCS.IPv4ToolSet`
 
 
 ## Troubleshooting
@@ -128,6 +129,8 @@ Quick
 #### Files blocked 
 `Get-ChildItem 'E:\Users\UserName\Documents\PowerShell\Modules\ITPS.OMCS.IPv4ToolSet' -Recurse | Unblock-File`
 
+#### ExecutionPolicy
+`Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass`
 
 ## Road Map 
 We have a vision for a IPv4 / Network tools centric toolbox.  What tools are going to be added, if any isn't exactally clear it may be complete now.  
