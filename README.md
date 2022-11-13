@@ -8,7 +8,7 @@ A set of networking tools which contain the following functions:
 - Convert-IPv4AddressToBinaryString
 - Get-IPv4Subnet
 - Get-SubnetCheatSheet 
-- Get-CidrFromHostCount
+- Get-Ipv4SbubnetFromHostCount
 - Find-MtuSize
 - Ping-IpRange
 - Test-TheInternet
@@ -69,6 +69,16 @@ The primary function for this tools set.  The function gets information about an
       FirstHostIP  : 192.168.0.1
       LastHostIP   : 192.168.127.254
       Broadcast    : 192.168.127.255
+	  
+	  
+#### Get-Ipv4SbubnetFromHostCount
+*Prviously: Get-CIDRFromHostCount*
+Returns the network size based on the number of hosts you want to connect.  This new version adds the Subnet, and binary to the previous CIDR only output.
+
+PrefixLength Subnet          Binary                          
+------------ ------          ------                          
+          25 255.255.255.128 11111111111111111111111110000000
+
 
 #### Ping-IpRange
 Pings through the range of IP addresses based on the First and Last Address provided.
@@ -106,40 +116,14 @@ Tests the path to the interenet from the local host outwards.  The idea behind t
 
 
 ## Install / Setup
-1. Find your local PSModule paths.  `$env:PSModulePath.Split(';')` 
-1. Download the [latest release zip file](https://github.com/KnarrStudio/ITPS.OMCS.IPv4ToolSet/releases)
-1. Unzip the files and save the module to the module path as Module\Version in your profile `$env:USERPROFILE`. _See example below_    
-1. Naveigate to that folder in powershell and run `Get-ChildItem -Recurse | Unblock-File` 
-1. At this point it is ready to use anytime
-1. Run `Import-Module ITPS.OMCS.IPv4ToolSet`
 
-*Path example of version 1.1.2.17* 
-```
-E:\Users\UserName\Documents\PowerShell\Modules\ITPS.OMCS.IPv4ToolSet\1.1.2.17 
-```
+Quick
+1. Download the [latest release zip file](https://github.com/KnarrStudio/ITPS.OMCS.IPv4ToolSet/releases)
+1. Unzip the files and save the module to the folder of your choosing.  Example: `C:\MyScripts\`    
+1. Run `Import-Module C:\MyScripts\ITPS.OMCS.IPv4ToolSet-1.1.2.17`
+
 
 ## Troubleshooting
-
-#### Path is not correct  
-Check to ensure the files are located under the _Version Number_.  
-```
-Get-ChildItem 'C:\Users\UserName\Documents\PowerShell\Modules\ITPS.OMCS.IPv4ToolSet\1.1.2.17'
-
-    Directory: C:\Users\erika\Documents\PowerShell\Modules\ITPS.OMCS.IPv4ToolSet\1.1.2.17
-
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
-d----           11/9/2022    21:02                .github
-d----           11/9/2022    21:02                Modules
-d----           11/9/2022    21:02                Scripts
-d----           11/9/2022    21:02                Tester
--a---           11/6/2022    12:55           9342 ITPS.OMCS.IPv4ToolSet.psd1
--a---          10/11/2022    21:45           1089 LICENSE
--a---          10/29/2022    10:54            126 loader.psm1
--a---          10/29/2022    13:15            557 Publish-Install.ps1
--a---           11/6/2022    12:35           4164 README.md
--a---           11/6/2022    12:55           2011 Update-ManifestModule.ps1
-```
 
 #### Files blocked 
 `Get-ChildItem 'E:\Users\UserName\Documents\PowerShell\Modules\ITPS.OMCS.IPv4ToolSet' -Recurse | Unblock-File`
