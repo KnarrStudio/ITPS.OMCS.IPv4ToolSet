@@ -104,10 +104,6 @@ Tests the path to the interenet from the local host outwards.  The idea behind t
 	70.171.18.19          : Passed        
 
 
-## Road Map 
-Although not entirely clear, we have a vision for a IPv4 centric toolbox and it may be complete, now.  But, we know that there is some room for improvement.  Simple items like, cleaning up the code and minimizing possible errors.
- 
-
 ## Install / Setup
 1. Find your local PSModule paths.  `$env:PSModulePath.Split(';')` 
 1. Download the [latest release zip file](https://github.com/KnarrStudio/ITPS.OMCS.IPv4ToolSet/releases)
@@ -148,3 +144,7 @@ d----           11/9/2022    21:02                Tester
 `Get-ChildItem 'E:\Users\UserName\Documents\PowerShell\Modules\ITPS.OMCS.IPv4ToolSet' -Recurse | Unblock-File`
 
 
+## Road Map 
+We have a vision for a IPv4 / Network tools centric toolbox.  What tools are going to be added, if any isn't exactally clear it may be complete now.  
+Regardless of how complete it is, we know that there is some room for improvement with cleaning up the code and minimizing possible errors.
+ 
