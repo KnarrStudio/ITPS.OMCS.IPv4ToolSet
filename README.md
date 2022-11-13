@@ -1,5 +1,6 @@
 # ITPS.OMCS.IPv4ToolSet
-IP v4 tool set has the following functions.  The original idea was to provide a set of networking tools for the Sys Admin/Eng.  Of Course some of these may be useful to our Networking brothers and sisters.
+
+A set of networking tools which contain the following functions: 
 
 - Add-IntToIPv4Address
 - Convert-NetMaskToCIDR
@@ -7,7 +8,7 @@ IP v4 tool set has the following functions.  The original idea was to provide a 
 - Convert-IPv4AddressToBinaryString
 - Get-IPv4Subnet
 - Get-SubnetCheatSheet 
-- Get-CidrFromHostCount
+- Get-Ipv4SbubnetFromHostCount
 - Find-MtuSize
 - Ping-IpRange
 - Test-TheInternet
@@ -68,6 +69,16 @@ The primary function for this tools set.  The function gets information about an
       FirstHostIP  : 192.168.0.1
       LastHostIP   : 192.168.127.254
       Broadcast    : 192.168.127.255
+	  
+	  
+#### Get-Ipv4SbubnetFromHostCount
+*Prviously: Get-CIDRFromHostCount*
+Returns the network size based on the number of hosts you want to connect.  This new version adds the Subnet, and binary to the previous CIDR only output.
+
+	PrefixLength Subnet          Binary                          
+	------------ ------          ------                          
+          	25 255.255.255.128 11111111111111111111111110000000
+
 
 #### Ping-IpRange
 Pings through the range of IP addresses based on the First and Last Address provided.
@@ -104,6 +115,23 @@ Tests the path to the interenet from the local host outwards.  The idea behind t
 	70.171.18.19          : Passed        
 
 
+## Install / Setup
+
+Quick
+1. Download the [latest release zip file](https://github.com/KnarrStudio/ITPS.OMCS.IPv4ToolSet/releases)
+1. Unzip the files and save the module to the folder of your choosing.  Example: `C:\MyScripts\`    
+1. Run `Import-Module C:\MyScripts\ITPS.OMCS.IPv4ToolSet-1.1.2.17`
+
+
+## Troubleshooting
+
+#### Files blocked 
+`Get-ChildItem 'E:\Users\UserName\Documents\PowerShell\Modules\ITPS.OMCS.IPv4ToolSet' -Recurse | Unblock-File`
+
+
 ## Road Map 
-Although not entirely clear, we have a vision for a IPv4 centric toolbox and it may be complete, now.  But, we know that there is some room for improvement.  Simple items like, cleaning up the code and minimizing possible errors.
+We have a vision for a IPv4 / Network tools centric toolbox.  What tools are going to be added, if any isn't exactally clear it may be complete now.  
+Regardless of how complete it is, we know that there is some room for improvement with cleaning up the code and minimizing possible errors.
+
+
  
