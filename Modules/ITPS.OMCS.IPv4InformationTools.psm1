@@ -1,4 +1,4 @@
-﻿function Get-Ipv4SbubnetFromHostCount
+﻿function Get-Ipv4SubnetFromHostCount
 {
   <#
       .SYNOPSIS
