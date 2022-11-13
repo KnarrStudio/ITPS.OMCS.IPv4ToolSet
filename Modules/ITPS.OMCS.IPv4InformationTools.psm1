@@ -1,34 +1,20 @@
-﻿function Get-Ipv4SbubnetFromHostCount
+﻿function Get-CidrFromHostCount
 {
   <#
       .SYNOPSIS
       Returns the CIDR number for a host count that will support the number of hosts you entered.
   #>
-  [Alias('Get-CidrFromHostCount')]
+  [OutputType([Int])]
   param(
     [Parameter(
-        Mandatory = $true,
-        ValueFromPipeline = $true,
-    HelpMessage = 'Integer between 1 - 4294967293')]
-    [ValidateScript({
-          if(($_ -gt 0) -and ($_ -lt 4294967294))
-          {
-            $true
-          }
-          Else
-          {
-            Throw 'Input file needs to be an integer between 1 - 4294967293'
-          }
-    })]
+      Mandatory = $true,
+      ValueFromPipeline = $true,
+      HelpMessage = 'Integer between 1 - 4294967293'
+    )]
     [UInt32]$HostCount
   )
   begin
   {
-    $MyInvocation.Line
-    If ($MyInvocation.Line -match 'Get-CidrFromHostCount') 
-    {
-      Write-Warning -Message 'The "Get-CidrFromHostCount" is depreciated.  Use: Get-Ipv4SbubnetFromHostCount'
-    }
   }
   process
   {
@@ -41,15 +27,10 @@
       $prefix = 32 - $i
     }
     until ($maxHosts -ge $HostCount)
-    $Subnet = Convert-CIDRToNetMask -PrefixLength $prefix
-    $Binary = Convert-IPv4AddressToBinaryString -IPAddress $Subnet
-    $NetworkSize = [PSCustomObject]@{
-      PrefixLength = $prefix
-      Subnet       = $Subnet
-      Binary       = $Binary
+    $prefixLength = [PSCustomObject]@{
+      PrefixLength = $Prefix;
     }
-
-    return $NetworkSize
+    return $prefixLength
   }
 }
 
