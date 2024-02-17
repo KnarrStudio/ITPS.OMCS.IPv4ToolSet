@@ -14,9 +14,9 @@ function Ping-IpRange
       Last address to test.
 
       .EXAMPLE
-      Ping-IpRange -FirstAddress 192.168.0.20 -LastAddress 192.168.0.25 | sort available
+      Ping-IpRange -FirstAddress 192.168.0.20 -LastAddress 192.168.0.25 | sort Responds
 
-      Address      Available
+      Address      Responds
       -------      ---------
       192.168.0.22     False
       192.168.0.23     False
@@ -26,9 +26,9 @@ function Ping-IpRange
       192.168.0.24      True
     
       .EXAMPLE
-      Ping-IpRangeNew -FirstAddress 192.168.0.20 -LastAddress 192.168.0.50 | Where Available -EQ $true
+      Ping-IpRangeNew -FirstAddress 192.168.0.20 -LastAddress 192.168.0.50 | Where Responds -EQ $true
 
-      Address      Available
+      Address      Responds
       -------      ---------
       192.168.0.20      True
       192.168.0.21      True
@@ -61,7 +61,7 @@ function Ping-IpRange
       $ip = ConvertIntToIPv4 -Integer $i
       $Response = [PSCustomObject]@{
         Address   = $ip
-        Available = (Test-Connection -ComputerName $ip -Count 1 -Quiet -TimeToLive 20)
+        Responds = (Test-Connection -ComputerName $ip -Count 1 -Quiet -TimeToLive 20)
       }
 
       Write-Progress -Activity ('Ping {0}' -f $ip) -PercentComplete ($j / $ProgressCount*100)
@@ -490,7 +490,7 @@ function Test-TheInternet
         }
         Catch
         {
-          if(($Target -eq $Null) -or ($Target -eq ''))
+          if(($Null -eq $Target) -or ($Target -eq ''))
           {
             $TestResults = 'Null or Blank IPAddress'
           }
